@@ -32,20 +32,19 @@ export default function App() {
     localStorage.setItem("feedback", JSON.stringify(feedback));
   }, [feedback]);
 
-
-    return (
-      <div>
-        <Description title={"Sip Happens Café"} text={"Please leave your feedback about our service by selecting one of the options below."} />
-        <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
-        {totalFeedback > 0 ? (
-          <Feedback
-            feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}
-          />
-        ) : (
-          <Notification message="No feedback yet" />
-        )}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <Description />
+      <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
+      {totalFeedback > 0 ? (
+        <Feedback
+          feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}
+        />
+      ) : (
+        <Notification />
+      )}
+    </div>
+  );
+}
 
 
