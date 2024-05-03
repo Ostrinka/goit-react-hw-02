@@ -19,7 +19,9 @@ export default function App() {
     }
   }
 
-    const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
+  const positiveFeedback = Math.round((feedback.good / totalFeedback) * 100);
+
 
     return (
       <div>
@@ -28,8 +30,7 @@ export default function App() {
         <Options updateFeedback={updateFeedback} totalFeedback={totalFeedback} />
         {totalFeedback > 0 ? (
           <Feedback
-            totalFeedback={totalFeedback}
-            feedback={feedback}
+            feedback={feedback} totalFeedback={totalFeedback} positiveFeedback={positiveFeedback}
           />
         ) : (
           <Notification message="No feedback yet" />
